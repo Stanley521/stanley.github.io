@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coalition Test</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+    <!-- Slick CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="assets/myriad-pro-cufonfonts-webfont/style.css">
+    <link rel="stylesheet" href="styles/caraousel.css">
+</head>
+<style>
+    body {
+        margin: 0px;
+        font-family: "Myriad Pro";
+    }
+
+    .header {
+        position: sticky;
+        top: 0px;
+        padding: 0px;
+        margin-top: -70px;
+        transition: ease 0.2s;
+        z-index: 99;
+        box-shadow: 1px 1px 10px #d6d6d6;
+    }
+
+    .my_container {
+        width: 1000px;
+        margin: auto;
+    }
+
+    .nav_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header.scrolled {
+        color: rgb(65, 79, 107);
+        background-color: white;
+    }
+
+    .header.scrolled .nav_container .nav_title {
+        border-bottom: 3px solid rgb(65, 79, 107);
+    }
+
+    .header.scrolled .nav_container .nav_title {
+        color: rgb(65, 79, 107);
+    }
+
+    .header.scrolled .logo_text {
+        display: block;
+    }
+
+    .header.scrolled .nav_container .container-fluid {
+        background-color: white;
+    }
+
+    .nav_title_my_container {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    .page {
+        position: relative;
+        height: 100vh;
+    }
+
+    .page.home {
+        position: relative;
+        height: fit-content;
+    }
+
+    .bg {
+        width: 100vw;
+    }
+
+
+    .bg.title {
+        z-index: 2;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+    }
+
+    .la_mountains {
+        background: url("assets/la_mountains.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* .la_mountains {
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        position: relative;
+        overflow: hidden;
+    } */
+
+    /* .la_mountains .image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }  */
+
+    .nav_home_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        background: none;
+        border: none;
+        text-decoration: none;
+    }
+
+    .logo_text {
+        padding-left: 15px;
+        display: none;
+    }
+
+    .nav_home_logo:hover {
+        transition: ease 0.1s;
+        transform: scale(1.1);
+    }
+
+    button:focus-visible {
+        outline: 1px solid beige;
+    }
+
+    .nav_title {
+        font-size: 12px;
+        color: rgb(254, 254, 255);
+        text-transform: uppercase;
+        line-height: 1.667;
+        border-bottom: 3px solid white;
+        margin: 0px 10px;
+        text-align: center;
+        width: 80px;
+        padding: 5px;
+        background: none;
+        text-decoration: none;
+    }
+
+    .nav_title:hover {
+        transition: ease 0.1s;
+        transform: scale(1.1);
+        color: rgb(254, 254, 255);
+    }
+
+    .nav_title.active:hover {
+        transition: ease 0.1s;
+        transform: scale(1.1);
+        color: rgb(254, 254, 255);
+    }
+
+    /* .navbar>.container-fluid {
+        justify-content: right;
+    } */
+
+    .bg.peak {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background: url("assets/peak.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .bg.team {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        background: url("assets/team.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .description_header_no {
+        font-size: 11.264px;
+        color: rgba(65, 79, 107, 0.502);
+        line-height: 1.2;
+        text-align: left;
+        -moz-transform: matrix(12.0413317551377, 0, 0, 12.0413317551377, 0, 0);
+        -webkit-transform: matrix(12.0413317551377, 0, 0, 12.0413317551377, 0, 0);
+        -ms-transform: matrix(12.0413317551377, 0, 0, 12.0413317551377, 0, 0);
+        position: absolute;
+        left: 100.222px;
+        top: 50.242px;
+        z-index: 86;
+    }
+
+    .description_header {
+        font-size: 11.264px;
+        color: rgb(65, 79, 107);
+        line-height: 1.2;
+        text-align: left;
+        -moz-transform: matrix(2.84103421435448, 0, 0, 2.84103421435448, 0, 0);
+        -webkit-transform: matrix(2.84103421435448, 0, 0, 2.84103421435448, 0, 0);
+        -ms-transform: matrix(2.84103421435448, 0, 0, 2.84103421435448, 0, 0);
+        position: absolute;
+        left: 190.551px;
+        top: 50.242px;
+        z-index: 85;
+    }
+
+    .description_text {
+        font-size: 16px;
+        color: rgb(0, 0, 0);
+        line-height: 1.5;
+        text-align: left;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        width: 800px;
+        height: 63px;
+        z-index: 84;
+    }
+
+    .my_container.history {
+        top: 180px;
+        position: relative;
+    }
+
+    .my_container.team {
+        top: 180px;
+        position: relative;
+    }
+
+    .my_caraousel {
+        background-color: rgba(65, 79, 107, 0.9);
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 210px;
+        z-index: 44;
+    }
+
+    .page.climb {
+        height: unset;
+    }
+
+    .climb.tab {
+        background-color: rgba(65, 79, 107, 1);
+    }
+
+    .my_container.climb {
+        top: 80px;
+        position: relative;
+        height: 200px;
+        z-index: -1;
+    }
+
+    .my_container.climb .description_text {
+        left: 270px;
+        top: 10px;
+    }
+
+    .my_container .tab.nav a {
+        color: rgb(176, 180, 190);
+        text-transform: uppercase;
+    }
+
+    .my_container .tab.nav a.active {
+        background-color: rgb(176, 180, 190);
+        color: rgba(65, 79, 107, 1);
+    }
+
+    .climb.content .tab-pane {
+        height: 63vh;
+        margin-bottom: 120px;
+    }
+
+    .climb.content .tab-pane .my_container {
+        padding-top: 80px;
+        padding-left: 30px;
+    }
+
+
+
+    #mountain1 {
+        background: url("assets/climb1.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    #mountain2 {
+        background: url("assets/climb2.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .mycard.schedule {
+        padding: 20px 50px;
+        background-color: rgb(255, 255, 255);
+        display: inline-block;
+        margin: auto;
+        opacity: 0.702;
+    }
+
+    .mycard.schedule .title {
+        font-size: 38px;
+        padding-bottom: 5px;
+        color: rgb(65, 79, 107);
+    }
+
+    .mycard.schedule table {
+        font-size: 19px;
+        font-weight: bold;
+    }
+
+    .mycard.schedule table td {
+        padding-bottom: 10px;
+    }
+
+    .mycard.schedule table tr td:nth-child(1) {
+        width: 180px;
+    }
+
+    .mycard.schedule table tr td:nth-child(2) {
+        width: 180px;
+    }
+
+
+    .footer {
+        /* display: flex;
+        justify-content: space-between; */
+        background-color: rgb(65, 79, 107);
+        height: 74px;
+        color: rgb(99, 118, 157);
+        ;
+    }
+
+    .LOSANGELES_MOUNTAINS {
+        font-size: 13.29px;
+        font-family: "Myriad Pro";
+        color: rgb(99, 118, 157);
+        text-transform: uppercase;
+        line-height: 1.079;
+        text-align: left;
+        -moz-transform: matrix(1.57940087361327, 0, 0, 1.59346119587011, 0, 0);
+        -webkit-transform: matrix(1.57940087361327, 0, 0, 1.59346119587011, 0, 0);
+        -ms-transform: matrix(1.57940087361327, 0, 0, 1.59346119587011, 0, 0);
+        width: 0px;
+    }
+
+
+    @media only screen and (max-width: 1000px) {
+        .my_container {
+            width: 100%;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .description_text {
+            width: unset;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-expand-lg .navbar-toggler {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <!-- Sidenav -->
+    <nav class="navbar fixed-top header" id="header">
+        <div class="container-fluid nav_container my_container">
+            <a class="nav_home_logo" href="#"><img src="assets/Logo.png" /> <img class="logo_text"
+            src="assets/Logo_text.png" /></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">LOSANGELES MOUNTAINS</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#history">01.
+                                History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#team">02. Team</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="page home">
+        <!-- <div class="la_mountains">
+            <img class="image" src="assets/la_mountains.png" alt="Your Image Description">
+        </div> -->
+        <div class="la_mountains">
+
+        </div>
+    </div>
+    <div class="page history" id="history">
+        <div class="bg peak">
+        </div>
+        <div class="my_container history">
+            <span class="description_header_no">
+                01.
+            </span>
+            <span class="description_header">
+                HISTORY
+            </span>
+            <span class="description_text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </span>
+        </div>
+        <div class="my_caraousel">
+            <div class="my_container">
+                <div id="teamcaraousel" class="slick">
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page climb">
+        <div class="my_container climb">
+            <span class="description_header_no">
+                02.
+            </span>
+            <span class="description_header">
+                CLIMB
+            </span>
+            <span class="description_text">
+                Cras scelerisque id quam sed dignissim Pellentesque urna nunc, duis aute irure dolor in reprehenderit in
+                voluptate velit esse.
+            </span>
+        </div>
+        <div class="climb tab">
+            <div class="my_container">
+                <div class="tab nav">
+                    <a class="nav-link active" id="mountain1-tab" data-bs-toggle="tab" href="#mountain1" role="tab"
+                        aria-controls="mountain1" aria-selected="true">Mountain 1</a>
+                    <a class="nav-link" id="mountain2-tab" data-bs-toggle="tab" href="#mountain2" role="tab"
+                        aria-controls="mountain2" aria-selected="true">Mountain 2</a>
+                </div>
+            </div>
+        </div>
+        <div class="climb content">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="mountain1" role="tabpanel" aria-labelledby="mountain1-tab">
+                    <div class="my_container">
+                        <div class="mycard schedule">
+                            <h1 class="title">SCHEDULE</h1>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>25 Nov 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28 Nov 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18 Dec 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7 Jan 2017</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="mountain2" role="tabpanel" aria-labelledby="mountain2-tab">
+                    <div class="my_container">
+                        <div class="mycard schedule">
+                            <h1 class="title">SCHEDULE</h1>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>17 Nov 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13 Dec 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28 Dec 2016</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8 Feb 2017</td>
+                                        <td>Vestibulum viverra</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page team" id="team">
+        <div class="bg team">
+        </div>
+        <div class="my_container team">
+            <span class="description_header_no">
+                02.
+            </span>
+            <span class="description_header">
+                TEAM
+            </span>
+            <span class="description_text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </span>
+        </div>
+        <div class="my_caraousel">
+            <div class="my_container">
+                <div id="historycaraousel" class="slick">
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail1.png" class="w-100 img-fluid" />
+                    </div>
+
+                    <div class="slide">
+                        <img src="assets/thumbnail2.png" class="w-100 img-fluid" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="nav_container my_container">
+            <a class="nav_home_logo" href="#"><img src="assets/Logo.png" /> <span
+                    class="logo_text d-flex LOSANGELES_MOUNTAINS">LOSANGELES
+                    MOUNTAINS</span></a>
+
+            <span>
+                COPYRIGHT 2016. ALL RIGHTS RESERVED
+            </span>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- Slick jQuery min -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        function addStickyClass() {
+            var header = document.getElementById("header");
+
+            if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        }
+        window.onscroll = function () { addStickyClass() };
+    </script>
+    <script src="script/caraousel.js"></script>
+</body>
+
+</html>
